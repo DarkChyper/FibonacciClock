@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package constantes;
+
+/**
+ * Classe regroupant les constantes de type string
+ * 
+ * @author darkchyper
+ *
+ */
+public interface ConstantesString {
+
+	// Simple Date Format
+	String hh = "hh";
+	String mm = "mm";
+
+	String HOUR = "HOUR";
+	String MINUTES ="MINUTES";
+
+	String ESPACE = " ";
+
+	// Liste des palettes de couleur
+	String NORMAL = "NORMAL";
+	String BLINDCOLOR = "BLINDCOLOR";
+	String NOCOLOR = "NOCOLOR";
+	
+	// message A propos
+	String A_PROPOS = "Fibonacci's Clock est un projet personnel inspiré d'un projet Kickstarter.\nInitialement codé pour Arduino par Philippe Chrétien.\nLes sources sont disponibles sur github ainsi que la référence vers le projet initial.";
+
+}

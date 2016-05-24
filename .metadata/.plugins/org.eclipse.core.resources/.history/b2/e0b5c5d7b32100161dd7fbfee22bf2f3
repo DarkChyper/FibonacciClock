@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package utils;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author darkchyper
+ *
+ */
+public class UtilsColor {
+
+	private final List<Color> schemaNormal = new ArrayList<Color>();
+	private final List<Color> schemaColorBLind = new ArrayList<Color>();
+	private final List<Color> schemaNoColor = new ArrayList<Color>();
+}

@@ -1,0 +1,37 @@
+/**
+ * 
+ */
+package enumeration;
+
+import java.awt.Color;
+
+/**
+ * Gestion des palettes de couleurs des blocs
+ * 
+ * @author darkchyper
+ *
+ */
+public enum EnumCouleur {
+
+	NORMAL(1,Color.RED);
+
+	private int nombre;
+	private Color couleur;
+
+	/**
+	 * Constructeur privé
+	 * 
+	 * @param nombre
+	 * @param couleur
+	 */
+	private EnumCouleur(final int nombre, final Color couleur){
+		this.nombre=nombre;
+		this.couleur=couleur;
+	}
+
+	public getCouleur(final int nombre){
+
+		return null;
+	}
+
+}

@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package enumeration;
+
+/**
+ * Gestion des palettes de couleurs des blocs
+ * 
+ * @author darkchyper
+ *
+ */
+public enum EnumCouleur {
+
+}

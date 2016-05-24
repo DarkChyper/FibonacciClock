@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package enumeration;
+
+/**
+ * Gestion des palettes de couleurs des blocs
+ * 
+ * @author darkchyper
+ *
+ */
+public enum EnumCouleur {
+	
+	NORMAL(1,new Color(RED));
+
+	private int nombre;
+	private Color couleur;
+}

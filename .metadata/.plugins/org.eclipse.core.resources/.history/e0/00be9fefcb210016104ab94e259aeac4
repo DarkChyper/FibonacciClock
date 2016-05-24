@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package constantes;
+
+/**
+ * Classe regroupant les constantes de type string
+ * 
+ * @author darkchyper
+ *
+ */
+public interface ConstantesString {
+
+	// Simple Date Format
+	String hh = "hh";
+	String mm = "mm";
+
+	String HOUR = "HOUR";
+	String MINUTES ="MINUTES";
+
+	String ESPACE = " ";
+
+	// Liste des palettes de couleur
+	String NORMAL = "NORMAL";
+	String BLINDCOLOR = "BLINDCOLOR";
+	String NOCOLOR = "NOCOLOR";
+
+}

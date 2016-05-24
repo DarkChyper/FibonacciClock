@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package utils;
+
+/**
+ * @author darkchyper
+ *
+ */
+public class UtilsColor {
+
+	private List<Color> schemaNormal = new ArrayList<Color>();
+}

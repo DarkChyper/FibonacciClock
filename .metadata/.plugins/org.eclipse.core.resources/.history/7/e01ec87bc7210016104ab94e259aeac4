@@ -1,0 +1,221 @@
+/**
+ * 
+ */
+package vue;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Date;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+import enumeration.EnumNombres;
+import fibonacci.Clock;
+import utils.UtilsClock;
+import utils.UtilsTemps;
+
+/**
+ * @author a02276
+ *
+ */
+public class Fenetre extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8877900504219672532L;
+
+	// on initialise le menu
+	private final JMenuBar barreDeMenu = new JMenuBar();
+	private final JMenu menuPalette = new JMenu("Palette");
+	private final JMenuItem itemStandard = new JMenuItem("Standard");
+	private final JMenuItem itemColorBlind = new JMenuItem("Daltonien");
+	private final JMenuItem itemNoColor= new JMenuItem("N&B");
+
+	// les boutons de la barre de menu
+	BoutonRond close,reduce,maximize;
+
+	// on gère les font
+	final Font f= new Font("Arial",Font.BOLD,10);
+
+	// pour le positionnement de la fenêtre
+	int pX,pY;
+
+	private final Panneau pan = new Panneau();
+
+
+	public Fenetre(){
+		// titre de la fenetre
+		this.setTitle("Fibonacci's Clock");
+
+		// Proprietes de la fenetre
+		this.setSize(400, 220);
+		this.setResizable(false);
+		this.setUndecorated(true);
+		this.setAlwaysOnTop(true);
+		final ImageIcon img = new ImageIcon("icone.png");
+		this.setIconImage(img.getImage());
+		this.setBackground(Color.BLACK);
+
+		// Positionnement de la fenetre
+		this.setLocationRelativeTo(null); 
+
+		// Interieur de la fenetre
+
+		// // on initialise le menu
+
+		// // // les boutons
+		close = new BoutonRond(Color.RED);
+		reduce = new BoutonRond(Color.YELLOW);
+		maximize = new BoutonRond(Color.GREEN);
+
+		close.setForeground(Color.WHITE);
+		close.setBackground(Color.black);
+		close.setFont(f);
+		close.setPreferredSize(new Dimension(20,20));
+		close.setMaximumSize(new Dimension(20,20));
+		close.setMinimumSize(new Dimension(20,20));
+		close.setBorder(null);
+
+		reduce.setForeground(Color.WHITE);
+		reduce.setBackground(Color.black);
+		reduce.setFont(f);
+		reduce.setPreferredSize(new Dimension(20,20));
+		reduce.setMaximumSize(new Dimension(20,20));
+		reduce.setMinimumSize(new Dimension(20,20));
+		reduce.setBorder(null);
+
+		maximize.setForeground(Color.WHITE);
+		maximize.setBackground(Color.black);
+		maximize.setFont(f);
+		maximize.setPreferredSize(new Dimension(20,20));
+		maximize.setMaximumSize(new Dimension(20,20));
+		maximize.setMinimumSize(new Dimension(20,20));
+		maximize.setBorder(null);
+
+		this.barreDeMenu.add(close);
+		this.barreDeMenu.add(reduce);
+		this.barreDeMenu.add(maximize);
+
+		close.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(final ActionEvent arg0) {
+
+				System.exit(0);
+
+			}        
+
+		});
+		this.itemStandard.setFont(f);
+		this.itemColorBlind.setFont(f);
+		this.itemNoColor.setFont(f);
+		this.menuPalette.add(itemStandard);
+		this.menuPalette.add(itemColorBlind);
+		this.menuPalette.add(itemNoColor);
+		this.barreDeMenu.add(menuPalette);
+
+		this.itemStandard.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(final ActionEvent arg0) {
+
+				System.exit(0);
+
+			} );
+
+
+		// on écrit la barre de menu
+		this.setJMenuBar(barreDeMenu);
+
+		// On ajoute le Listener à la barre de menu
+		this.barreDeMenu.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mousePressed(final MouseEvent me)
+			{
+				// Get x,y and store them
+				pX=me.getX();
+				pY=me.getY();
+			}
+		});
+
+		// On ajoute le MotionListener à la barre de menu
+		this.barreDeMenu.addMouseMotionListener(new MouseAdapter(){
+			@Override
+			public void mouseDragged(final MouseEvent me)
+			{
+				setLocation((getLocation().x+me.getX())-pX,(getLocation().y+me.getY())-pY);
+			}
+		});
+
+		this.setContentPane(pan);  
+
+		this.setVisible(true);
+		go();
+
+		}
+
+		private void go(){
+
+			// initialisation de l'horloge
+			final Clock clock = new Clock();
+			Date date = new Date();
+			int hour = UtilsTemps.getHour(date);
+			int minutes = UtilsTemps.getMinutes(date);
+			clock.resetBloc();
+			UtilsClock.allumerBloc(clock, hour, EnumNombres.UN.getNombre());
+			UtilsClock.allumerBloc(clock, minutes, EnumNombres.DEUX.getNombre());
+
+			// on met à jour les blocs
+			pan.setBloc0(clock.getColorBLoc(0));
+			pan.setBloc1(clock.getColorBLoc(1));
+			pan.setBloc2(clock.getColorBLoc(2));
+			pan.setBloc3(clock.getColorBLoc(3));
+			pan.setBloc5(clock.getColorBLoc(4));
+			pan.repaint();
+
+			// on met en mémoire l'heure utilisée
+			int oldHour = new Integer(hour);
+			int oldMinutes = new Integer(minutes);
+
+			// on boucle 
+			while(true){
+
+				date = new Date();
+				hour = UtilsTemps.getHour(date);
+				minutes = UtilsTemps.getMinutes(date);
+				if((oldHour != hour) || (oldMinutes != minutes)){
+					oldHour = hour;
+					oldMinutes = minutes;
+
+					clock.resetBloc();
+					UtilsClock.allumerBloc(clock, hour, EnumNombres.UN.getNombre());
+					UtilsClock.allumerBloc(clock, minutes, EnumNombres.DEUX.getNombre());
+
+					pan.setBloc0(clock.getColorBLoc(0));
+					pan.setBloc1(clock.getColorBLoc(1));
+					pan.setBloc2(clock.getColorBLoc(2));
+					pan.setBloc3(clock.getColorBLoc(3));
+					pan.setBloc5(clock.getColorBLoc(4));
+					pan.repaint();
+				}
+
+				try {
+					Thread.sleep(60000);
+				} catch (final InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+
+
+		}       
+	}
