@@ -1,0 +1,49 @@
+* Le projet *
+
+Fibonacci's Clock est un projet personnel écrit par DarkChyper en Java.
+
+L'ide originale est de Philippe Chrétien (www.basbrun.com).
+
+Vous pouvez trouver le code source du projet original sur ce dépot : https://github.com/pchretien/fibo
+
+Il est redistribué sous la même licence GNU.
+
+* Comment lire l'heure *
+
+La suite de Fibonacci est une séquence de nombres créés par le mathématicien italien Fibonacci au 13ème siècle.
+C'est une séquence commençant par 1 et 1, où chaque nombre suivant est la somme des deux précédents.
+Pour l'horloge on utilise les 5 premiers termes: 1, 1, 2, 3 et 5.
+
+L'écran de l'horloge est composée de cinq carrés dont les longueurs correspondent aux cinq premiers nombres de Fibonacci: 1, 1, 2, 3 et 5.
+
+Les heures sont affichées à l'aide rouge (rose ou gris foncé) et les minutes en utilisant le vert (jaune ou gris clair).
+
+Quand un carré est utilisé pour afficher les heures et les minutes, il devient bleu (jaue ou noir).
+Les carrés blancs sont ignorés.
+
+Pour lire l'heure sur l'horloge de Fibonacci vous devez faire quelques calculs.
+Il suffit d'additionner les valeurs correspondantes des carrés rouges et bleus pour les heures. 
+Pour lire les minutes faire la même chose avec les carrés verts et bleus.
+Les minutes sont affichées par incréments de 5 minutes (0 à 12) de sorte que vous devez multiplier le résultat par 5 pour obtenir le nombre réel.
+
+
+* Note de version *
+
+0.9 :
+Fenetre resizable, possibilité d'affichage pour les daltonien et pour ceux qui ne distinguent pas du tout les couleurs.
+Il reste quelques bug lorsque l'on déplace la fenêtre java.
+
+reste à faire : 
+	* créer les boutons pour maximiser et minimiser la fenêtre
+	* passer les pop up devant la fenetre java
+	* rendre la barre de menu otpionnelle
+	* rendre le code plus lisible et évolutif
+
+
+* A propos de l'auteur * 
+
+Je m'appelle Simon Lhoir, je vis à Lille (environs), France.
+Geek passionné de technologie, films, séries, JV ..., anciennement Monteur Truquiste, 
+j'ai choisis de changer de carrière en 2014 pour devenir Analyste Développeur.
+
+Dispo sur github (DarkChyper), Instagram et Twitter @drk_chpr
