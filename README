@@ -2,11 +2,13 @@
 
 Fibonacci's Clock est un projet personnel écrit par DarkChyper en Java.
 
-L'ide originale est de Philippe Chrétien (www.basbrun.com).
+L'idée originale est de Philippe Chrétien (www.basbrun.com).
 
 Vous pouvez trouver le code source du projet original sur ce dépot : https://github.com/pchretien/fibo
 
 Il est redistribué sous la même licence GNU.
+
+Le but de projet, outre de le coder en JAVA est de l'amener vers une application Android.
 
 * Comment lire l'heure *
 
